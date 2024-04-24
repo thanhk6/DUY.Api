@@ -1,0 +1,35 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DUY.Framework.Validator", "DUY.Framework.Validator\DUY.Framework.Validator.csproj", "{169E5EE6-1052-4897-B378-74A9C379F804}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DUY.API", "DUY.API\DUY.API.csproj", "{D618A8F9-B000-492C-98C7-6A28DAEEF1AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{92A6F4DE-BEF3-4950-9D5C-CBB75546A160}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{169E5EE6-1052-4897-B378-74A9C379F804}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{169E5EE6-1052-4897-B378-74A9C379F804}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{169E5EE6-1052-4897-B378-74A9C379F804}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{169E5EE6-1052-4897-B378-74A9C379F804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D618A8F9-B000-492C-98C7-6A28DAEEF1AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D618A8F9-B000-492C-98C7-6A28DAEEF1AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D618A8F9-B000-492C-98C7-6A28DAEEF1AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D618A8F9-B000-492C-98C7-6A28DAEEF1AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {71436E10-3A3D-46BD-A7C8-2DA13C0FDD8E}
+	EndGlobalSection
+EndGlobal

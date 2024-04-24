@@ -1,0 +1,14 @@
+﻿namespace DUY.API.Model.Contract
+{
+    public class ComMentModel
+    {
+        public long id { get; set; }
+        public string Name { get; set; }
+        public long ParentID { get; set; }
+        public long UserID { get; set; }
+        public long song_Id { get; set; }
+        public string Content { get; set; }
+        public int Order { get; set; }
+        public bool Activity { get; set; } = true;
+    }
+}
