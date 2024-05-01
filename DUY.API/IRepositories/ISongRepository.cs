@@ -12,5 +12,7 @@ namespace DUY.API.IRepositories
         Task<PaginationSet<Songmodel>> SongList(string? keyword ,int page_size, int page_number);
         Task<Songmodel> SongModify(Songmodel model);
         Task<bool> SongDelete(long song_id, long user_id);
+
+        Task<bool> toolupload ();
     }
 }

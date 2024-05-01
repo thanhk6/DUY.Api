@@ -188,7 +188,7 @@ namespace DUY.API.Controllers
 
                 if (validator.Succeeded)
                 {
-                    var user = await _customerRepository.CustomerGetPhone(login.username);
+                    var user = await _customerRepository.CustomerGetPhone(login.username,login.password);
 
                     if (user != null && user.id > 0)
                     {

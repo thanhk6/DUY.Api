@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using DUY.API.Entities;
-using C.Tracking.API.Model.User;
-
 using DUY.API.Model.Song;
-using DUY.API.Model.User;
 using DUY.API.Model.Customer;
 using DUY.API.Model.Contract;
 
@@ -13,16 +10,6 @@ namespace C.Tracking.API.Mapper
     {
         public AddAutoMapper()
         {
-            CreateMap<Admin_User, UserCreateModel>();
-            CreateMap<UserCreateModel, Admin_User>();
-
-            CreateMap<Admin_User, UserModifyModel>();
-            CreateMap<UserModifyModel, Admin_User>();
-
-            CreateMap<Admin_User, UserModel>();
-
-
-
             CreateMap<CustomerModel, Customer>();
             CreateMap<Customer, CustomerModel>();
 

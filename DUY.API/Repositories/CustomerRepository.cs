@@ -40,12 +40,15 @@ namespace DUY.API.Repositories
             int check = _context.Customer.Where(r => r.phone == phone).Count();
             return Task.FromResult(check);
         }
-        public async Task<Customer> CustomerGetPhone(string phone)
+        public async Task<Customer> CustomerGetPhone(string username, string password)
         {
             Customer customer = new Customer();
-            customer = _context.Customer.Where(r => r.phone == phone).FirstOrDefault();
-            return customer;
+            customer = _context.Customer.Where(r => r.name == username&& r.password== password).FirstOrDefault();
+             return customer;
         }
+
+
+
         //public async Task<string> CustomerCreate(CustomerAddModel model)
         //{
 
@@ -122,6 +125,7 @@ namespace DUY.API.Repositories
                 string tablename = Common.TableName.Customer.ToString();
                 CustomerModel model = new CustomerModel();
                 Customer customer = await _context.Customer.FirstOrDefaultAsync(r => r.id == id && !r.is_delete);
+
                 if (customer != null)
                 {
                     model = _mapper.Map<CustomerModel>(customer);

@@ -1,7 +1,6 @@
 ﻿using DUY.API.Entities;
 using C.Tracking.API.Model;
 using C.Tracking.API.Model.Customer;
-using C.Tracking.API.Model.User;
 using DUY.API.Model.Customer;
 
 namespace DUY.API.IRepositories
@@ -9,7 +8,7 @@ namespace DUY.API.IRepositories
     public interface ICustomerRepository
     {
         Task<int> CustomerCheck(string phone);
-        Task<Customer> CustomerGetPhone(string phone);
+        Task<Customer> CustomerGetPhone(string phone, string password);
         Task<int> Authenticate(CustomerLoginModel login);
         Task<Customercreate> CustomerCreate(Customercreate model);
 

@@ -16,8 +16,6 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var contexOptions = new DbContextOptionsBuilder<ApplicationContext>().UseSqlServer(connectionString).Options;
 builder.Services.AddDbContext<ApplicationContext>(x => x.UseSqlServer(connectionString));
-builder.Services.AddTransient<IUserRepository, UserRepository>();
-builder.Services.AddTransient<IAdminRepository, AdminRepository>();
 builder.Services.AddTransient<IContractFileRepository, ContractFileRepository>();
 builder.Services.AddTransient<IComMentRepository, ComMentRepository>();
 builder.Services.AddTransient<ICustomerRepository, CustomerRepository>();

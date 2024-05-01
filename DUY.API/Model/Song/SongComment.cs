@@ -15,6 +15,4 @@ namespace DUY.API.Model.Song
         public File? audio { get; set; }
         public List<ComMentModel>? comments { get; set;}
     }
-
-  
 }

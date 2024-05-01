@@ -59,7 +59,6 @@ namespace DUY.API.Migrations
                 {
                     table.PrimaryKey("PK_file", x => x.id);
                 });
-
             migrationBuilder.CreateTable(
                 name: "song",
                 columns: table => new

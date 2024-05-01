@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using NAudio.Wave;
 namespace C.Tracking.API.Controllers
 {
 
@@ -22,7 +23,7 @@ namespace C.Tracking.API.Controllers
                 }
                 var files = form.Files;
                 var folderName = @"/data/duy_files";
-                //var folderName = @"D:\Folder";
+                // var folderName = @"D:\Folder";
                 string pathToSave = Path.Combine(Directory.GetCurrentDirectory(), folderName);
                 if (files.Count() > 0)
                 {
@@ -44,6 +45,7 @@ namespace C.Tracking.API.Controllers
                         item.name_guid = Guid.NewGuid().ToString() + "." + item.file_type;
                         string fullPath = Path.Combine(pathToSave, item.name_guid);
                         item.path = Path.Combine(folderName, item.name_guid);
+
                         using (var stream = new FileStream(fullPath, FileMode.Create))
                         {
                             file.CopyTo(stream);
@@ -63,6 +65,7 @@ namespace C.Tracking.API.Controllers
                 return StatusCode(500, $"Internal server error: {ex}");
             }
         }
+
         [HttpPost("download")]
         public IActionResult GetBlobDownload([FromBody] FileDowloadModel model)
         {
@@ -74,6 +77,7 @@ namespace C.Tracking.API.Controllers
             var fileName = model.file_name;
             return File(content, contentType, fileName);
         }
+
         [AllowAnonymous]
         [HttpGet("view-audio")]
         public IActionResult ViewImage(string url_file)
@@ -82,9 +86,15 @@ namespace C.Tracking.API.Controllers
             string type = "";
             if (fileType[fileType.Count() - 1] != "mp3")
                 type = "mp3/" + fileType[fileType.Count() - 1];
+
             var image = System.IO.File.OpenRead(url_file);
-            return File(image, type);
+
+            var audioFile = new AudioFileReader(url_file);
+
+            return File(audioFile, type);
         }
+
+
         [AllowAnonymous]
         [HttpGet("view-pdf")]
         public IActionResult ViewPDF(string url_file)

@@ -12,14 +12,15 @@ namespace DUY.API.Controllers
 {
     [Route("api/song")]
     [ApiController]
-    public class SongController: BaseController
+    public class SongController : BaseController
     {
 
 
         private readonly IConfiguration _configuration;
         private readonly ISongRepository _songRepository;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public SongController(ISongRepository SongRepository, IHttpContextAccessor httpContextAccessor, IConfiguration configuration) {
+        public SongController(ISongRepository SongRepository, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
+        {
 
             _songRepository = SongRepository;
             _httpContextAccessor = httpContextAccessor;
@@ -150,7 +151,7 @@ namespace DUY.API.Controllers
         {
             try
             {
-                var response = await this._songRepository.SongList(keyword,page_size,page_number);
+                var response = await this._songRepository.SongList(keyword, page_size, page_number);
                 return response != null
                     ? Ok(new ResponseSingleContentModel<PaginationSet<Songmodel>>
                     {
@@ -202,13 +203,13 @@ namespace DUY.API.Controllers
 
 
         [AllowAnonymous]
-        [HttpDelete("toolupaload")]
+        [HttpPost("toolupaload")]
         public async Task<IActionResult> ToolUpload()
         {
             try
             {
-                var response = true;
-                return response != true
+                var response = await this._songRepository.toolupload();
+                return response == true
                     ? Ok(new ResponseSingleContentModel<bool>
                     {
                         StatusCode = 200,
@@ -218,7 +219,7 @@ namespace DUY.API.Controllers
                     : (IActionResult)Ok(new ResponseSingleContentModel<bool>
                     {
                         StatusCode = 500,
-                        Message = "Không tìm thấy bản ghi ",
+                        Message = "có lỗi trong quá trình upload ",
                         Data = response
                     });
             }
@@ -232,3 +233,4 @@ namespace DUY.API.Controllers
 
     }
 }
+   
